@@ -61,16 +61,14 @@ jobs:
         path: frontend/build/
         retention-days: 7
 
-  # docker-build:
-  #   runs-on: ubuntu-latest
-  #   needs: test
-  #   
-  #   steps:
-  #   - uses: actions/checkout@v4
-  #   
-  #   - name: Build Docker image
-  #     working-directory: ./frontend
-  #     run: |
-  #       docker build -t smart-comments-frontend:${{ github.sha }} .
-  # 
-  # TODO: Uncomment when frontend/Dockerfile is created
+  docker-build:
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Build Docker image
+      working-directory: ./frontend
+      run: |
+        docker build -t smart-comments-frontend:${{ github.sha }} .
