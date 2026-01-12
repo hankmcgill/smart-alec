@@ -3,7 +3,7 @@ djangorestframework==3.14.0
 django-cors-headers==4.3.1
 django-filter==23.5
 python-decouple==3.8
-# psycopg2-binary==2.9.9  # Only needed for PostgreSQL in production
+psycopg2-binary==2.9.9  # PostgreSQL adapter for production
 
 # Testing
 pytest==7.4.4
