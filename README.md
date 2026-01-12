@@ -1,5 +1,7 @@
 # Smart Comments
 
+## By Hank McGill
+
 Full-stack blog application with AI-powered comment moderation. Built with Django REST Framework and React TypeScript.
 
 ## Features
