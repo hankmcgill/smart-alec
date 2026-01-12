@@ -28,7 +28,7 @@ function App() {
 
         <footer className="bg-white border-t mt-12">
           <div className="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600 text-sm">
-            Built with Django + React + AI Classification
+            Built with Django + React + AI Classification | Live Demo by Hank McGill
           </div>
         </footer>
       </div>
