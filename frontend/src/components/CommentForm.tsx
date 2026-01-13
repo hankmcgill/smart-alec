@@ -49,23 +49,23 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId, onCommentAdded }) => 
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-8 border-b pb-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">Add a Comment</h3>
+    <form onSubmit={handleSubmit} className="mb-8 border-b border-gray-200 dark:border-gray-700 pb-6">
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Add a Comment</h3>
       
       {error && (
-        <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+        <div className="mb-4 bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-200 px-4 py-3 rounded-lg">
           {error}
         </div>
       )}
 
       {success && (
-        <div className="mb-4 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
+        <div className="mb-4 bg-emerald-50 dark:bg-emerald-900/50 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-200 px-4 py-3 rounded-lg">
           Comment submitted successfully! 🎉
         </div>
       )}
 
       <div className="mb-4">
-        <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="author" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Your Name
         </label>
         <input
@@ -73,7 +73,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId, onCommentAdded }) => 
           id="author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
           placeholder="Enter your name"
           disabled={submitting}
           required
@@ -81,7 +81,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId, onCommentAdded }) => 
       </div>
 
       <div className="mb-4">
-        <label htmlFor="text" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="text" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Comment
         </label>
         <textarea
@@ -89,7 +89,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId, onCommentAdded }) => 
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={4}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+          className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent resize-none"
           placeholder="Share your thoughts..."
           disabled={submitting}
           required

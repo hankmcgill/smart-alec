@@ -59,22 +59,22 @@ const PostDetail: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <Link to="/" className="text-blue-600 hover:text-blue-700 mb-4 inline-block">
+      <Link to="/" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-4 inline-block transition-colors">
         ← Back to posts
       </Link>
 
-      <article className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
-        <div className="text-sm text-gray-500 mb-6">
+      <article className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 mb-8">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{post.title}</h1>
+        <div className="text-sm text-gray-500 dark:text-gray-500 mb-6">
           Posted on {new Date(post.created_at).toLocaleDateString()}
         </div>
-        <div className="prose max-w-none text-gray-700 whitespace-pre-wrap">
+        <div className="prose max-w-none text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
           {post.body}
         </div>
       </article>
 
-      <div className="bg-white rounded-lg shadow-lg p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Comments ({post.comments?.length || 0})
         </h2>
 
@@ -83,7 +83,7 @@ const PostDetail: React.FC = () => {
         {post.comments && post.comments.length > 0 ? (
           <CommentList comments={post.comments} />
         ) : (
-          <p className="text-gray-500 text-center py-8">
+          <p className="text-gray-500 dark:text-gray-500 text-center py-8">
             No comments yet. Be the first to comment!
           </p>
         )}
