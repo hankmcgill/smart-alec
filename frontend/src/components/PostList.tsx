@@ -50,20 +50,20 @@ const PostList: React.FC = () => {
     <div className="max-w-5xl mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Recent Posts</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Browse articles and join the discussion</p>
+          <h1 className="text-2xl font-bold text-white">Recent Posts</h1>
+          <p className="text-gray-400 text-sm mt-1">Browse articles and join the discussion</p>
         </div>
         <Link
           to="/moderator"
-          className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all shadow-sm hover:shadow-md"
+          className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors"
         >
           Moderator Dashboard
         </Link>
       </div>
 
       {posts.length === 0 ? (
-        <div className="text-center py-16 backdrop-blur-sm bg-white/60 dark:bg-gray-800/60 rounded-xl border border-gray-200/50 dark:border-gray-700/50">
-          <p className="text-gray-500 dark:text-gray-400">No posts yet. Check back later!</p>
+        <div className="text-center py-16 bg-gray-800 rounded-xl border border-gray-700">
+          <p className="text-gray-400">No posts yet. Check back later!</p>
         </div>
       ) : (
         <div className="space-y-4">
@@ -71,18 +71,18 @@ const PostList: React.FC = () => {
             <Link
               key={post.id}
               to={`/posts/${post.id}`}
-              className="block backdrop-blur-sm bg-white/60 dark:bg-gray-800/60 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-emerald-400/50 dark:hover:border-emerald-500/50 hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all p-6 group shadow-sm hover:shadow-md"
+              className="block bg-gray-800 rounded-xl border border-gray-700 hover:border-gray-600 transition-all p-6 group"
             >
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+              <h2 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
                 {post.title}
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2 leading-relaxed">{post.body}</p>
-              <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 font-medium">
+              <p className="text-gray-400 mb-4 line-clamp-2 leading-relaxed">{post.body}</p>
+              <div className="flex items-center gap-4 text-xs text-gray-500">
                 <span className="flex items-center gap-1">
                   💬 {post.comment_count} {post.comment_count === 1 ? 'comment' : 'comments'}
                 </span>
                 {post.flagged_comment_count > 0 && (
-                  <span className="flex items-center gap-1 text-orange-600 dark:text-orange-400 font-semibold">
+                  <span className="flex items-center gap-1 text-orange-500">
                     ⚠️ {post.flagged_comment_count} flagged
                   </span>
                 )}
