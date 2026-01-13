@@ -99,7 +99,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId, onCommentAdded }) => 
       <button
         type="submit"
         disabled={submitting}
-        className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
+        className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {submitting ? 'Submitting...' : 'Submit Comment'}
       </button>

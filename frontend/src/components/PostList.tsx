@@ -47,19 +47,22 @@ const PostList: React.FC = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Blog Posts</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-gray-900">Recent Posts</h1>
+          <p className="text-gray-600 text-sm mt-1">Browse articles and join the discussion</p>
+        </div>
         <Link
           to="/moderator"
-          className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition"
+          className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
         >
           Moderator Dashboard
         </Link>
       </div>
 
       {posts.length === 0 ? (
-        <div className="text-center py-12 bg-white rounded-lg shadow">
+        <div className="text-center py-16 bg-white rounded-lg border border-gray-200">
           <p className="text-gray-500">No posts yet. Check back later!</p>
         </div>
       ) : (
@@ -68,19 +71,19 @@ const PostList: React.FC = () => {
             <Link
               key={post.id}
               to={`/posts/${post.id}`}
-              className="block bg-white rounded-lg shadow hover:shadow-md transition p-6"
+              className="block bg-white rounded-lg border border-gray-200 hover:border-blue-400 transition-all p-6 group"
             >
-              <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                 {post.title}
               </h2>
               <p className="text-gray-600 mb-4 line-clamp-2">{post.body}</p>
-              <div className="flex items-center gap-4 text-sm text-gray-500">
+              <div className="flex items-center gap-4 text-xs text-gray-500">
                 <span className="flex items-center gap-1">
                   💬 {post.comment_count} {post.comment_count === 1 ? 'comment' : 'comments'}
                 </span>
                 {post.flagged_comment_count > 0 && (
-                  <span className="flex items-center gap-1 text-orange-600">
-                    🚩 {post.flagged_comment_count} flagged
+                  <span className="flex items-center gap-1 text-orange-600 font-medium">
+                    ⚠️ {post.flagged_comment_count} flagged
                   </span>
                 )}
                 <span>
