@@ -1,8 +1,8 @@
-# Smart Comments
+# Smart Alec
 
 ## By Hank McGill
 
-Full-stack blog application with AI-powered comment moderation. Built with Django REST Framework and React TypeScript.
+Meet Smart Alec, your friendly neighborhood comment filter-er! Full-stack blog application with AI-powered comment moderation. Built with Django REST Framework and React TypeScript.
 
 ## Features
 
@@ -138,3 +138,35 @@ npm run lint               # Frontend
 ## License
 
 MIT
+
+## Demoing
+
+Want to see some test posts show up on the application? In the terminal, post to the site with these commands:
+
+```
+# Create a post
+curl -X POST https://smart-alec-backend.onrender.com/api/posts/ \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Welcome to Smart Alec!!",
+    "body": "This is a production demo of AI-powered comment moderation. Try adding comments - the system automatically flags spam and inappropriate content!"
+  }'
+
+# Add a safe comment (replace post ID if needed)
+curl -X POST https://smart-alec-backend.onrender.com/api/comments/ \
+  -H "Content-Type: application/json" \
+  -d '{
+    "post": 1,
+    "author": "Alice",
+    "text": "This is really cool! The AI moderation works great."
+  }'
+
+# Add a flagged comment (spam)
+curl -X POST https://smart-alec-backend.onrender.com/api/comments/ \
+  -H "Content-Type: application/json" \
+  -d '{
+    "post": 1,
+    "author": "Spammer",
+    "text": "BUY NOW!!! CLICK HERE http://bit.ly/spam amazing deals!!!"
+  }'
+```

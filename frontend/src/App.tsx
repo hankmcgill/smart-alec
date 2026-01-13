@@ -10,7 +10,7 @@ function App() {
         <header className="bg-white shadow-sm border-b">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <h1 className="text-2xl font-bold text-blue-600">
-              Smart Comments 💬
+              Smart Alec 💬
             </h1>
             <p className="text-sm text-gray-600">
               AI-Powered Comment Moderation
@@ -28,7 +28,7 @@ function App() {
 
         <footer className="bg-white border-t mt-12">
           <div className="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600 text-sm">
-            Built with Django + React + AI Classification
+            Built by Hank McGill for Civitos!
           </div>
         </footer>
       </div>
