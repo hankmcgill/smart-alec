@@ -1,4 +1,15 @@
-# Multi-stage build for React app
+# Development stage
+FROM node:20-alpine as development
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+CMD ["npm", "start"]
 
 # Build stage
 FROM node:20-alpine as build
