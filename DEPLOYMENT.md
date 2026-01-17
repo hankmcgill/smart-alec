@@ -50,7 +50,7 @@
 3. Set publish directory: `frontend/build`
 4. Add environment variable: `REACT_APP_API_URL`
 
-### Option 2: Docker Compose (VPS/Self-hosted)
+### Option 2: Docker Compose (Self-hosted, ex. via AWS EC2)
 
 ```bash
 # Build and deploy
