@@ -50,36 +50,7 @@
 3. Set publish directory: `frontend/build`
 4. Add environment variable: `REACT_APP_API_URL`
 
-### Option 2: Railway.app
-
-**Backend:**
-1. Create new project from GitHub
-2. Add PostgreSQL database
-3. Set root directory: `backend`
-4. Railway auto-detects Django and configures
-5. Add environment variables
-
-**Frontend:**
-1. Create new service from same repo
-2. Set root directory: `frontend`
-3. Add build command: `npm run build`
-4. Add environment variable
-
-### Option 3: Fly.io
-
-**Backend:**
-1. Install flyctl CLI
-2. Run `fly launch` in backend directory
-3. Configure `fly.toml`
-4. Add PostgreSQL: `fly postgres create`
-5. Deploy: `fly deploy`
-
-**Frontend:**
-1. Run `fly launch` in frontend directory
-2. Configure build settings
-3. Deploy: `fly deploy`
-
-### Option 4: Docker Compose (VPS/Self-hosted)
+### Option 2: Docker Compose (VPS/Self-hosted)
 
 ```bash
 # Build and deploy
@@ -91,18 +62,6 @@ docker-compose -f docker-compose.prod.yml exec backend python manage.py migrate
 # Create superuser
 docker-compose -f docker-compose.prod.yml exec backend python manage.py createsuperuser
 ```
-
-## Post-Deployment
-
-- [ ] Test all API endpoints
-- [ ] Test comment submission
-- [ ] Verify AI classification is working
-- [ ] Test moderator dashboard
-- [ ] Check admin panel access
-- [ ] Monitor error logs
-- [ ] Set up monitoring (Sentry, etc.)
-- [ ] Configure custom domain (if applicable)
-- [ ] Test with real users
 
 ## Environment Variables Reference
 
