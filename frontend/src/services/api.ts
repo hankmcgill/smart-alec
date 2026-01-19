@@ -56,6 +56,8 @@ export const commentsApi = {
   },
   getFlagged: () => api.get<PaginatedResponse<Comment> | Comment[]>('/comments/flagged/'),
   create: (data: CreateCommentDto) => api.post<Comment>('/comments/', data),
+  approve: (id: number) => api.patch<Comment>(`/comments/${id}/`, { flagged: false }),
+  remove: (id: number) => api.delete(`/comments/${id}/`),
 };
 
 export default api;

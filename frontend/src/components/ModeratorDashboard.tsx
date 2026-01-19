@@ -27,6 +27,26 @@ const ModeratorDashboard: React.FC = () => {
     }
   };
 
+  const handleApprove = async (commentId: number) => {
+    try {
+      await commentsApi.approve(commentId);
+      setFlaggedComments(flaggedComments.filter(c => c.id !== commentId));
+    } catch (err) {
+      setError('Failed to approve comment.');
+      console.error('Error approving comment:', err);
+    }
+  };
+
+  const handleRemove = async (commentId: number) => {
+    try {
+      await commentsApi.remove(commentId);
+      setFlaggedComments(flaggedComments.filter(c => c.id !== commentId));
+    } catch (err) {
+      setError('Failed to remove comment.');
+      console.error('Error removing comment:', err);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -137,10 +157,16 @@ const ModeratorDashboard: React.FC = () => {
                 </div>
 
                 <div className="flex gap-2">
-                  <button className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm px-4 py-2 rounded-lg transition-colors">
+                  <button
+                    onClick={() => handleApprove(comment.id)}
+                    className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm px-4 py-2 rounded-lg transition-colors"
+                  >
                     ✓ Approve
                   </button>
-                  <button className="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition-colors">
+                  <button
+                    onClick={() => handleRemove(comment.id)}
+                    className="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition-colors"
+                  >
                     ✗ Remove
                   </button>
                 </div>
